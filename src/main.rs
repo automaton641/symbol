@@ -1,6 +1,11 @@
 use sentidos::*;
 
-fn mouse_input_handler(button: MouseButton, state: ElementState, position: (usize, usize)) {
+fn mouse_input_handler(
+    _window: &mut Window<SymbolProgram>,
+    button: MouseButton,
+    state: ElementState,
+    position: (usize, usize),
+) {
     match button {
         MouseButton::Left => match state {
             ElementState::Pressed => {
@@ -25,6 +30,5 @@ fn main() {
     let symbol_program = SymbolProgram::new();
     let mut window = Window::new(symbol_program, "symbol", 1024, 512);
     window.add_mouse_input_handler(mouse_input_handler);
-    //window.set_user_data(symbol_program);
     window.show();
 }
